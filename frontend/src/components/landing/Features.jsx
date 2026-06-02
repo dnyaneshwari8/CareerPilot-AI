@@ -9,12 +9,12 @@ const features = [
   {
     icon: FiZap,
     title: 'AI-Powered Analysis',
-    description: 'Get intelligent insights on your skills, gaps, and career trajectory. (Phase 2)',
+    description: 'ATS scoring, strengths, weaknesses, and job role suitability powered by LLM.',
   },
   {
     icon: FiTrendingUp,
-    title: 'Career Roadmap',
-    description: 'Personalized learning paths tailored to your dream role. (Phase 2)',
+    title: 'Skill Gap & Roadmap',
+    description: 'Compare your skills to target roles with a step-by-step learning path.',
   },
   {
     icon: FiShield,

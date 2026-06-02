@@ -84,6 +84,8 @@ export default function DashboardPage() {
         <div className="mt-4 flex flex-wrap gap-3">
           <Link to="/dashboard/upload" className="btn-primary">Upload Resume</Link>
           <Link to="/dashboard/resume" className="btn-secondary">View Resumes</Link>
+          <Link to="/dashboard/analysis" className="btn-secondary">AI Analysis</Link>
+          <Link to="/dashboard/skill-gap" className="btn-secondary">Skill Gap</Link>
         </div>
       </div>
     </div>

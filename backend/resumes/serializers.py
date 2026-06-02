@@ -19,7 +19,7 @@ class ResumeSerializer(serializers.ModelSerializer):
             'file_url',
             'uploaded_at',
         )
-        read_only_fields = ('id', 'file_size', 'uploaded_at')
+        read_only_fields = ('id', 'original_filename', 'file_size', 'uploaded_at')
 
     def get_file_url(self, obj):
         request = self.context.get('request')
@@ -45,6 +45,8 @@ class ResumeSerializer(serializers.ModelSerializer):
 class ResumeListSerializer(serializers.ModelSerializer):
     file_size_display = serializers.ReadOnlyField()
     file_url = serializers.SerializerMethodField()
+    has_parsed_data = serializers.SerializerMethodField()
+    has_analysis = serializers.SerializerMethodField()
 
     class Meta:
         model = Resume
@@ -55,7 +57,15 @@ class ResumeListSerializer(serializers.ModelSerializer):
             'file_size_display',
             'file_url',
             'uploaded_at',
+            'has_parsed_data',
+            'has_analysis',
         )
+
+    def get_has_parsed_data(self, obj):
+        return bool(obj.parsed_data)
+
+    def get_has_analysis(self, obj):
+        return bool(obj.analysis_data)
 
     def get_file_url(self, obj):
         request = self.context.get('request')

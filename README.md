@@ -1,6 +1,6 @@
 # CareerPilot AI
 
-A modern full-stack career platform built with **React (Vite)** and **Django REST Framework**. Phase 1 includes JWT authentication and PDF resume management with a production-quality SaaS UI.
+A modern full-stack career platform built with **React (Vite)** and **Django REST Framework**. Includes JWT auth, PDF resume management, and **AI-powered ATS analysis & skill gap coaching** via LLM prompts.
 
 ## Tech Stack
 
@@ -18,6 +18,7 @@ CareerPilot AI/
 │   ├── config/          # Django settings & URLs
 │   ├── accounts/        # User auth & profile APIs
 │   ├── resumes/         # Resume upload & management APIs
+│   ├── ai/              # LLM prompts, PDF extract, parse/analyze/skill-gap
 │   ├── media/           # Uploaded resumes (gitignored)
 │   └── requirements.txt
 ├── frontend/
@@ -30,7 +31,15 @@ CareerPilot AI/
 └── README.md
 ```
 
-## Features (Phase 1)
+## Features
+
+### Phase 2 — AI (LLM)
+- **Resume parsing** — PDF → text → structured JSON (name, skills, education, experience, projects)
+- **ATS analysis** — score 0–100, strengths, weaknesses, missing skills, recommendations, role fit
+- **Skill gap** — compare skills vs target role (Backend, Full Stack, ML, Frontend, DevOps) + learning path
+- Mock mode for demos without an API key (`AI_MOCK_MODE=True`)
+
+### Phase 1
 
 ### Authentication
 - User registration with strong password validation
@@ -117,13 +126,26 @@ App runs at **http://localhost:5173**
 | DELETE | `/<id>/` | Delete resume |
 | GET | `/<id>/download/` | Download resume file |
 
-## Future Phases
+### AI (`/api/ai/`)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/roles/` | Career roles for skill gap |
+| POST | `/skill-gap/` | Skill gap analysis `{ resume_id, target_role }` |
+| GET | `/resumes/<id>/` | Cached parse + analysis |
+| POST | `/resumes/<id>/parse/` | LLM resume parsing |
+| POST | `/resumes/<id>/analyze/` | ATS analysis |
 
-The codebase is structured for upcoming AI features:
-- ATS resume scoring
-- Skill gap analysis
-- Personalized career roadmaps
+**AI env vars** (`backend/.env`):
+```env
+GEMINI_API_KEY=your-gemini-key
+GEMINI_MODEL=gemini-1.5-flash
+AI_MOCK_MODE=False   # True = demo JSON without API calls
+```
+
+## Future Phases
 - Interview preparation modules
+- Personalized multi-week roadmaps
+- Job description matching
 
 ## License
 

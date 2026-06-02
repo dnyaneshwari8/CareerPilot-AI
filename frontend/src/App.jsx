@@ -11,6 +11,8 @@ import DashboardPage from './pages/DashboardPage';
 import UploadResumePage from './pages/UploadResumePage';
 import ResumeDetailsPage from './pages/ResumeDetailsPage';
 import ProfilePage from './pages/ProfilePage';
+import ResumeAnalysisPage from './pages/ResumeAnalysisPage';
+import SkillGapPage from './pages/SkillGapPage';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
             <Route index element={<DashboardPage />} />
             <Route path="upload" element={<UploadResumePage />} />
             <Route path="resume" element={<ResumeDetailsPage />} />
+            <Route path="analysis" element={<ResumeAnalysisPage />} />
+            <Route path="skill-gap" element={<SkillGapPage />} />
             <Route path="profile" element={<ProfilePage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />

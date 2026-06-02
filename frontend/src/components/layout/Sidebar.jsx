@@ -6,6 +6,8 @@ import {
   FiUser,
   FiLogOut,
   FiX,
+  FiCpu,
+  FiTarget,
 } from 'react-icons/fi';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
@@ -14,6 +16,8 @@ const navItems = [
   { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
   { to: '/dashboard/upload', icon: FiUpload, label: 'Upload Resume' },
   { to: '/dashboard/resume', icon: FiFileText, label: 'My Resume' },
+  { to: '/dashboard/analysis', icon: FiCpu, label: 'AI Analysis' },
+  { to: '/dashboard/skill-gap', icon: FiTarget, label: 'Skill Gap' },
   { to: '/dashboard/profile', icon: FiUser, label: 'Profile' },
 ];
 

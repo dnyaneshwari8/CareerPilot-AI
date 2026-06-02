@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     # Local apps
     'accounts',
     'resumes',
+    'ai',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,9 @@ CORS_ALLOW_CREDENTIALS = True
 # Resume upload limits
 MAX_RESUME_SIZE_MB = 10
 ALLOWED_RESUME_EXTENSIONS = ['.pdf']
+
+# AI / LLM (Gemini)
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
+GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')
+# Set True to use demo JSON without an API key (hackathon demos)
+AI_MOCK_MODE = os.getenv('AI_MOCK_MODE', 'True').lower() == 'true'

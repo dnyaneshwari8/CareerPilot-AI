@@ -26,6 +26,11 @@ class Resume(models.Model):
     file_size = models.PositiveIntegerField(default=0)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+    # AI processing (Phase 2)
+    extracted_text = models.TextField(blank=True)
+    parsed_data = models.JSONField(null=True, blank=True)
+    analysis_data = models.JSONField(null=True, blank=True)
+
     class Meta:
         ordering = ['-uploaded_at']
 

@@ -37,11 +37,15 @@ export default function Hero() {
           <div className="glass gradient-border rounded-2xl p-1 shadow-2xl shadow-indigo-500/10">
             <div className="rounded-xl bg-surface-200/90 p-6 sm:p-8">
               <div className="grid gap-4 sm:grid-cols-3">
-                {['Resume Upload', 'Skill Analysis', 'Interview Prep'].map((item) => (
-                  <div key={item} className="rounded-xl bg-white/5 p-4 text-center">
-                    <div className="mx-auto mb-2 h-2 w-2 rounded-full bg-emerald-400" />
-                    <p className="text-sm font-medium text-slate-300">{item}</p>
-                    <p className="mt-1 text-xs text-slate-500">Coming in Phase 2</p>
+                {[
+                  { name: 'Resume Upload', live: true },
+                  { name: 'ATS Analysis', live: true },
+                  { name: 'Skill Gap', live: true },
+                ].map(({ name, live }) => (
+                  <div key={name} className="rounded-xl bg-white/5 p-4 text-center">
+                    <div className={`mx-auto mb-2 h-2 w-2 rounded-full ${live ? 'bg-emerald-400' : 'bg-slate-600'}`} />
+                    <p className="text-sm font-medium text-slate-300">{name}</p>
+                    <p className="mt-1 text-xs text-slate-500">{live ? 'Available now' : 'Coming soon'}</p>
                   </div>
                 ))}
               </div>

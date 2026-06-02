@@ -8,7 +8,6 @@ export const resumeService = {
     const formData = new FormData();
     formData.append('file', file);
     return api.post('/resumes/upload/', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
       onUploadProgress: (e) => {
         if (onProgress && e.total) {
           onProgress(Math.round((e.loaded * 100) / e.total));
